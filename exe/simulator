@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "medical/directory"
+
+cli = Medical::Directory::CLI.new
+
+unless ARGV[0].nil?
+    # TODO 
+end
