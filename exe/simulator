@@ -5,6 +5,13 @@ require "medical/directory"
 
 cli = Medical::Directory::CLI.new
 
-unless ARGV[0].nil?
-    # TODO 
+unless (ARGV[0].nil? || ARGV[1].nil?)
+  begin
+    instructions = cli.load(ARGV[0])
+    cli.run(instructions, ARGV[1])
+  rescue Errno::ENOENT => e
+    puts "#{e.message}"
+  end
+else
+  puts "Missing arguments :)"
 end
