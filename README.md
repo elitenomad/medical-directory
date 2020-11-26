@@ -140,7 +140,7 @@ when `Medical::Directory::Report` is initialized, `Medical::Directory::DataLoade
 1. If multiple records are with same date and patient, the last one will override the previous ones.
 2. Gender won't change in subsequent records. If it did the results will not be as expected.
 3. Better results are possible if an instruction is for a date range. Smaller datasets is fine when the user age is same.
-
+4. Schema additions and validating them during the data loading phase is something i would love to improve on. Currently i assume that the input files are well formed.
 
 # Enhancements
 
