@@ -2,10 +2,12 @@ PATH
   remote: .
   specs:
     medical-directory (0.1.0)
+      smarter_csv (~> 1.2.6)
 
 GEM
   remote: https://rubygems.org/
   specs:
+    awesome_print (1.8.0)
     diff-lcs (1.4.4)
     rake (12.3.3)
     rspec (3.10.0)
@@ -21,11 +23,13 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.10.0)
     rspec-support (3.10.0)
+    smarter_csv (1.2.6)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
   medical-directory!
   rake (~> 12.0)
   rspec (~> 3.0)
