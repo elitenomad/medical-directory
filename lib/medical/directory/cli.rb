@@ -26,9 +26,9 @@ module Medical
       def run(instructions, input_file)
         report.load_prerequisite_data(input_file)
 
-        instructions.each do |instruction|
+        instructions.each do |instruction, *args|
           unless instruction == :invalid
-            output = report.send(instruction)
+            output = report.send(instruction, *args)
             puts "#{instruction.to_s.ljust(40)} ----> #{output}"
           end
         end
