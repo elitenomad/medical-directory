@@ -14,6 +14,8 @@ module Medical
             :male_patients_count,
             :avg_age_of_male_patients,
             :avg_age_of_female_patients,
+            [:avg_bp_of_patients, 20, 100],
+            :patients_with_increasing_glucose_levels
           ]
 
           expect(commands).to eq(expected_commands)
@@ -65,11 +67,28 @@ module Medical
             subject.run([:avg_age_of_female_patients], dummy_file)
           end
         end
+
         context "Avg age of male patients" do
           it "passes avg_age_of_male_patients instruction to report" do
             expect(report).to receive(:load_prerequisite_data).with(/patients.csv/)
             expect(report).to receive(:avg_age_of_male_patients)
             subject.run([:avg_age_of_male_patients], dummy_file)
+          end
+        end
+
+        context "Avg bg of patients" do
+          it "passes avg_bp_of_patients instruction to report" do
+            expect(report).to receive(:load_prerequisite_data).with(/patients.csv/)
+            expect(report).to receive(:avg_bp_of_patients)
+            subject.run([[:avg_bp_of_patients, 20, 100]], dummy_file)
+          end
+        end
+
+        context "patients with increased glucose levels" do
+          it "passes patients_with_increasing_glucose_levels instruction to report" do
+            expect(report).to receive(:load_prerequisite_data).with(/patients.csv/)
+            expect(report).to receive(:patients_with_increasing_glucose_levels)
+            subject.run([:patients_with_increasing_glucose_levels], dummy_file)
           end
         end
       end
